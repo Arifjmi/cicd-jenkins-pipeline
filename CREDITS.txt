@@ -1,0 +1,3 @@
+Design and code: uiCookies, https://uicookies.com/
+Bootstrap 5.3.8: Copyright The Bootstrap Authors, MIT license, https://github.com/twbs/bootstrap/blob/v5.3.8/LICENSE
+Icons: original inline SVG geometry. No third-party photography or fonts.
