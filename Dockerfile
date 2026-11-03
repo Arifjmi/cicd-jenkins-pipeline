@@ -1,19 +1,13 @@
 FROM ubuntu
 
-RUN apt-get update
+RUN apt-get update && apt-get install -y apache2
 
-RUN apt-get install -y apache2 apache2-utils zip unzip curl
-
-RUN apt-get clean
-
-WORKDIR /var/www/html
-
-RUN curl -L "https://htmlcodex.com/downloading/?item=2338" -o /tmp/template.zip
-
-RUN unzip /tmp/template.zip -d /tmp/template
-
-RUN cp -a /tmp/template/. /var/www/html/
+COPY index.html /var/www/html/
+COPY style.css /var/www/html/
+COPY main.js /var/www/html/
+COPY favicon.svg /var/www/html/
+COPY vendor/ /var/www/html/vendor/
 
 EXPOSE 80
 
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD ["apachectl", "-D", "FOREGROUND"]
